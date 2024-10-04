@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from commpy.filters import rcosfilter
+
 
 def psk_modulation(b, order, fcarrier, fs, fsym):
     t = np.linspace(0, 1/fsym, int(fs/fsym), endpoint=False)  # Временная шкала для одного символа
@@ -148,11 +150,11 @@ def plot_spectrum(fsym, fcarrier=15, fs=30, num_symbols=100):
 
 
 # Пример использования демодулятора
-fcarrier = 50  # Частота несущей
+fcarrier = 32  # Частота несущей
 fs = 1000  # Частота дискретизации
-fsym = 25  # Частота символов
+fsym = 8  # Частота символов
 order = 4  # Порядок модуляции 
-num_symbols = 1000  # Количество символов
+num_symbols = 10  # Количество символов
 
 bits_per_symbol = int(np.log2(order))
 num_bits = num_symbols * bits_per_symbol
